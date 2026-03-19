@@ -755,9 +755,25 @@
     document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
     // Form
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
       e.preventDefault();
-      e.target.querySelectorAll('.form-input, .form-submit').forEach(el => el.style.display = 'none');
+      const form = e.target;
+      const btn = form.querySelector('.form-submit');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      const inputs = form.querySelectorAll('.form-input');
+      const [name, email, company, message] = [...inputs].map(i => i.value);
+
+      try {
+        await fetch('https://menoslabs-contact.thedobrien.workers.dev', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ name, email, company, message })
+        });
+      } catch(e) {}
+
+      form.querySelectorAll('.form-input, .form-submit').forEach(el => el.style.display = 'none');
       document.getElementById('form-success').style.display = 'block';
     }
   </script>
