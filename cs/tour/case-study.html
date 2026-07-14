@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WC5HGC5SEY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WC5HGC5SEY');
+</script>
+<title>Customer Experience Case Study — Menos Labs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-top:#171B2E;
+    --bg-bot:#2A2342;
+    --panel:#1C2032;
+    --panel-2:#21263A;
+    --card:#1E2336;
+    --edge:#2C3148;
+    --edge-soft:#252A3E;
+    --rivet:#3A4060;
+    --white:#F2F3F8;
+    --dim:#8C92AB;
+    --faint:#5C6280;
+    --coral:#EF4D3F;
+    --coral-soft:rgba(239,77,63,.14);
+    --teal:#3FC9A8;
+    --amber:#F4B43C;
+    --r:10px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--white);line-height:1.45;
+    background:
+      radial-gradient(900px 700px at 78% 115%, rgba(140,70,170,.34), transparent 62%),
+      radial-gradient(700px 500px at 12% 0%, rgba(50,80,160,.20), transparent 60%),
+      linear-gradient(160deg,var(--bg-top),var(--bg-bot));
+    min-height:100vh;
+    padding:22px;
+  }
+  .head-font{font-family:'Quicksand',sans-serif}
+
+  /* intro strip */
+  .intro{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin:0 auto 16px;max-width:1280px}
+  .intro h1{font-family:'Quicksand',sans-serif;font-weight:700;font-size:clamp(19px,2.6vw,26px);line-height:1}
+  .intro h1 span{color:var(--coral)}
+  .intro p{color:var(--dim);font-size:13px;max-width:560px;margin-top:7px}
+  .intro p b{color:var(--white);font-weight:600}
+  .eyebrow-ml{font-family:'Quicksand',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:11px;color:var(--coral);margin-bottom:8px}
+  .eyebrow-ml a{color:var(--coral);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .12s}
+  .eyebrow-ml a:hover{border-bottom-color:var(--coral)}
+  .toggle{
+    display:inline-flex;align-items:center;gap:9px;cursor:pointer;white-space:nowrap;
+    background:var(--panel);border:1px solid var(--edge);border-radius:var(--r);
+    padding:9px 14px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;color:var(--white);
+    transition:border-color .15s,color .15s;
+  }
+  .toggle:hover{border-color:var(--coral)}
+  .toggle .dot{width:9px;height:9px;border-radius:50%;background:var(--rivet);transition:background .15s}
+  body.why .toggle{border-color:var(--coral);color:var(--coral)}
+  body.why .toggle .dot{background:var(--coral)}
+
+  /* app shell */
+  .app{
+    max-width:1280px;margin:0 auto;display:flex;
+    background:linear-gradient(160deg,rgba(23,27,46,.6),rgba(42,35,66,.5));
+    border:1px solid var(--edge);border-radius:16px;overflow:hidden;
+    box-shadow:0 40px 90px -40px rgba(0,0,0,.75);min-height:760px;position:relative;
+  }
+
+  /* ---- sidebar ---- */
+  .side{width:208px;flex-shrink:0;border-right:1px solid var(--edge-soft);display:flex;flex-direction:column;padding:14px 0;background:rgba(0,0,0,.16)}
+  .nav-item{display:flex;align-items:center;gap:13px;padding:9px 18px;color:var(--dim);font-size:13.5px;cursor:pointer;position:relative;transition:color .12s}
+  .nav-item svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.7;flex-shrink:0}
+  .nav-item:hover{color:var(--white)}
+  .nav-item.active{color:var(--white);font-weight:500}
+  .nav-item.active::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;background:var(--coral);border-radius:0 3px 3px 0}
+  .nav-spacer{flex:1}
+  .side .foot{padding:0 18px}
+  .side .foot .nav-item{padding-left:0}
+  .ver{font-size:10.5px;color:var(--faint);padding:10px 18px 0;display:flex;align-items:center;justify-content:space-between}
+  .ver .arrows{display:flex;gap:4px}
+  .ver .arrows span{width:18px;height:18px;border-radius:4px;background:rgba(255,255,255,.05);display:grid;place-items:center;font-size:9px;color:var(--faint)}
+
+  /* ---- main ---- */
+  .main{flex:1;display:flex;flex-direction:column;min-width:0;position:relative}
+
+  .topbar{display:flex;align-items:center;gap:14px;padding:13px 22px;border-bottom:1px solid var(--edge-soft)}
+  .switch{display:flex;align-items:center;gap:9px;font-family:'Quicksand',sans-serif}
+  .switch .org{font-weight:700;font-size:16px}
+  .switch .car{color:var(--dim);font-size:11px}
+  .switch .tour{font-weight:600;font-size:14px;color:var(--white)}
+  .gear{color:var(--faint)}
+  .topbar .spacer{flex:1}
+  .search{display:flex;align-items:center;gap:9px;background:rgba(0,0,0,.22);border:1px solid var(--edge);border-radius:100px;padding:8px 15px;width:min(340px,34vw);color:var(--faint);font-size:13px}
+  .topbar .ic{width:34px;height:34px;border-radius:8px;display:grid;place-items:center;color:var(--dim)}
+  .avatar-top{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#4a5070,#2c3148);border:1px solid var(--rivet)}
+
+  /* page head */
+  .pagehead{display:flex;justify-content:space-between;align-items:flex-start;padding:20px 22px 4px}
+  .pagehead .venue h2{font-family:'Quicksand',sans-serif;font-weight:700;font-size:24px;line-height:1.1}
+  .pagehead .venue p{color:var(--dim);font-size:13px;margin-top:3px}
+  .pagehead .date{text-align:right}
+  .pagehead .date .d{font-size:14px;color:var(--white);font-weight:500}
+  .pagehead .date .badge{display:inline-flex;align-items:center;gap:7px;margin-top:6px;background:var(--coral-soft);color:var(--coral);border:1px solid rgba(239,77,63,.3);font-family:'Quicksand',sans-serif;font-weight:600;font-size:11px;letter-spacing:.04em;padding:4px 11px;border-radius:100px}
+  .pagehead .date .badge .pp{width:6px;height:6px;border-radius:50%;background:var(--coral);animation:pulse 2.4s infinite}
+  .clock-now{display:flex;flex-direction:column;align-items:flex-end;margin-bottom:7px}
+  .clock-now .ct{font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;line-height:1;letter-spacing:.01em;font-variant-numeric:tabular-nums}
+  .clock-now .cz{font-size:10.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.1em;margin-top:3px}
+
+  /* dash grid */
+  .dash{display:grid;grid-template-columns:1.5fr 1.05fr 1.1fr;gap:14px;padding:16px 22px 26px}
+  @media (max-width:1080px){.dash{grid-template-columns:1fr 1fr}}
+  @media (max-width:820px){
+    .dash{grid-template-columns:1fr}
+    /* sidebar collapses to an icon rail so nav stays usable */
+    .side{width:56px;padding:12px 0}
+    .nav-item{justify-content:center;padding:11px 0;font-size:0;gap:0}
+    .nav-item svg{width:19px;height:19px}
+    .nav-item.active::before{top:8px;bottom:8px}
+    .side .foot{padding:0}
+    .side .foot .nav-item{padding-left:0;justify-content:center}
+    .ver{font-size:0;padding:8px 0 0;justify-content:center}
+    .ver .arrows{display:none}
+  }
+  @media (max-width:680px){
+    body{padding:12px}
+    .app{border-radius:12px;min-height:0}
+    .topbar{gap:9px;padding:11px 14px}
+    .search{display:none}
+    .topbar .ic{display:none}
+    .gear{display:none}
+    .switch .org{font-size:14px}
+    .switch .tour{font-size:13px}
+    .pagehead{flex-direction:column;gap:10px;padding:16px 16px 4px}
+    .pagehead .date{text-align:left}
+    .pagehead .venue h2{font-size:21px}
+    .dash{padding:14px 16px 22px}
+    .crew-tabs{margin:6px 16px 0;padding:8px 16px 0;flex-wrap:wrap}
+    .ctab-panel{padding:16px}
+    .appfoot{flex-direction:column;gap:8px}
+    .appfoot .seg{border-left:none;padding:0}
+    .appfoot .wx{flex-wrap:wrap;justify-content:center}
+  }
+  @media (max-width:420px){
+    .switch .org{display:none}
+    .switch .car:first-of-type{display:none}
+    .crew-grid,.roster{grid-template-columns:1fr}
+    .fabs{right:14px}
+  }
+  .col{display:flex;flex-direction:column;gap:14px;min-width:0}
+
+  .card{background:var(--card);border:1px solid var(--edge);border-radius:var(--r);padding:16px}
+  .card-h{display:flex;align-items:center;gap:9px;margin-bottom:14px}
+  .card-h .lbl{font-family:'Quicksand',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.09em;font-size:12px;color:var(--dim)}
+  .card-h svg{width:15px;height:15px;stroke:var(--dim);fill:none;stroke-width:1.8}
+  .card-h .grow{flex:1}
+  .card-h .more{color:var(--faint);font-size:18px;line-height:1;cursor:pointer}
+  .chip{font-family:'Quicksand',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.03em;padding:2px 8px;border-radius:100px}
+  .chip.over{background:rgba(244,180,60,.14);color:var(--amber)}
+  .chip.ok{background:rgba(63,201,168,.14);color:var(--teal)}
+
+  /* budget hero */
+  .bud-top{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:4px}
+  .bud-spent{font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+  .bud-of{color:var(--dim);font-size:13px;margin-top:6px}
+  .bud-of b{color:var(--white);font-weight:600;font-variant-numeric:tabular-nums}
+  .bud-remain{text-align:right}
+  .bud-remain .n{font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:var(--teal);font-variant-numeric:tabular-nums}
+  .bud-remain .l{font-size:10.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.08em;margin-top:2px}
+  .burn{height:9px;border-radius:6px;background:rgba(255,255,255,.07);position:relative;overflow:hidden;margin:14px 0 8px}
+  .burn .fill{position:absolute;inset:0;width:64.4%;background:linear-gradient(90deg,var(--coral),#f6845a);border-radius:6px}
+  .burn .pace{position:absolute;top:-4px;bottom:-4px;left:60.9%;width:2px;background:var(--white);opacity:.85}
+  .burn-leg{display:flex;justify-content:space-between;font-size:11px;color:var(--dim)}
+  .burn-leg .pace-note{color:var(--amber);font-weight:500}
+  .cats{margin-top:14px;display:flex;flex-direction:column;gap:9px}
+  .cat{display:grid;grid-template-columns:96px 1fr 64px;gap:10px;align-items:center;font-size:12px}
+  .cat .nm{color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .cat .bar{height:6px;border-radius:4px;background:rgba(255,255,255,.06);position:relative;overflow:hidden}
+  .cat .bar i{position:absolute;inset:0;border-radius:4px;background:var(--rivet)}
+  .cat .bar i.hot{background:linear-gradient(90deg,var(--coral),#f6845a)}
+  .cat .amt{text-align:right;color:var(--white);font-variant-numeric:tabular-nums;font-size:11.5px}
+
+  /* schedule mini */
+  .sched-row{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:7px 0;align-items:center}
+  .sched-row + .sched-row{border-top:1px solid var(--edge-soft)}
+  .sched-row .t{font-size:12.5px;color:var(--dim);font-variant-numeric:tabular-nums;text-align:right}
+  .sched-row .nm{font-size:13.5px}
+  .sched-row.now .t{color:var(--coral);font-weight:600}
+  .sched-row.now .nm{font-weight:600}
+  .sched-row .nm small{color:var(--faint);font-size:11px;margin-left:6px}
+
+  /* tasks */
+  .task{display:flex;align-items:flex-start;gap:11px;padding:8px 0}
+  .task + .task{border-top:1px solid var(--edge-soft)}
+  .check{width:17px;height:17px;border-radius:5px;border:1.7px solid var(--rivet);flex-shrink:0;margin-top:1px;display:grid;place-items:center;cursor:pointer}
+  .task.done .check{background:var(--teal);border-color:var(--teal)}
+  .task.done .check svg{width:11px;height:11px;stroke:#13261f;stroke-width:2.6;fill:none}
+  .task .tx{flex:1;font-size:13.5px;line-height:1.35}
+  .task.done .tx{color:var(--faint);text-decoration:line-through}
+  .task .meta{display:flex;gap:8px;margin-top:3px;font-size:11px;color:var(--faint);align-items:center}
+  .task .who{color:var(--coral);font-weight:500}
+  .task .due{color:var(--amber)}
+  .note{display:flex;gap:10px;padding:9px 0;align-items:flex-start}
+  .note + .note{border-top:1px solid var(--edge-soft)}
+  .note .pin{color:var(--amber);font-size:13px;margin-top:1px}
+  .note .tx{font-size:12.5px;color:var(--dim);line-height:1.4}
+
+  /* venue compact */
+  .vrow{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--dim);line-height:1.5}
+  .vrow .vn{color:var(--white);font-weight:600;font-family:'Quicksand',sans-serif}
+
+  /* crew chat */
+  .chat-card{display:flex;flex-direction:column;flex:1;min-height:420px}
+  .chat-h{display:flex;align-items:center;gap:9px;padding-bottom:13px;border-bottom:1px solid var(--edge-soft);margin-bottom:0}
+  .chat-h .lbl{font-family:'Quicksand',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.09em;font-size:12px;color:var(--dim)}
+  .chat-h svg{width:15px;height:15px;stroke:var(--dim);fill:none;stroke-width:1.8}
+  .chat-h .on{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--teal);margin-left:auto}
+  .chat-h .on .d{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 7px rgba(63,201,168,.6)}
+  .stream{flex:1;overflow-y:auto;padding:14px 2px;display:flex;flex-direction:column;gap:12px}
+  .msg{display:flex;gap:9px;max-width:90%}
+  .msg .av{width:28px;height:28px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;font-family:'Quicksand',sans-serif;font-weight:700;font-size:11px;color:#14161f}
+  .msg .bub{background:var(--panel-2);border:1px solid var(--edge);border-radius:4px 12px 12px 12px;padding:8px 12px}
+  .msg .nm{font-size:11px;color:var(--dim);margin-bottom:3px;display:flex;gap:7px;align-items:center}
+  .msg .nm .role{font-family:'Quicksand',sans-serif;font-weight:600;font-size:9.5px;letter-spacing:.04em;padding:1px 6px;border-radius:100px;background:rgba(255,255,255,.06);color:var(--faint)}
+  .msg .nm .time{color:var(--faint);font-size:10px;margin-left:auto}
+  .msg .bub .tx{font-size:13px;line-height:1.4}
+  .msg.me{align-self:flex-end;flex-direction:row-reverse}
+  .msg.me .bub{background:var(--coral-soft);border-color:rgba(239,77,63,.3);border-radius:12px 4px 12px 12px}
+  .msg.me .av{background:var(--coral);color:#fff}
+  .msg.bot .av{background:linear-gradient(135deg,#6a72ff,#a05ad0)}
+  .msg.bot .bub{background:rgba(106,114,255,.10);border-color:rgba(106,114,255,.3)}
+  .msg.bot .sched-inline{display:flex;gap:14px;margin-top:7px;padding-top:7px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:var(--dim)}
+  .msg.bot .sched-inline b{display:block;color:var(--white);font-variant-numeric:tabular-nums;font-weight:600;font-size:12px}
+  .compose{display:flex;gap:8px;padding-top:12px;border-top:1px solid var(--edge-soft)}
+  .compose input{flex:1;background:rgba(0,0,0,.24);border:1px solid var(--edge);border-radius:100px;padding:10px 15px;color:var(--white);font-family:inherit;font-size:13px;outline:none}
+  .compose input:focus{border-color:var(--rivet)}
+  .compose input::placeholder{color:var(--faint)}
+  .compose .send{width:38px;height:38px;border-radius:50%;background:var(--coral);border:none;cursor:pointer;display:grid;place-items:center;flex-shrink:0}
+  .compose .send svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2}
+
+  /* FABs */
+  .fabs{position:absolute;right:22px;bottom:62px;display:flex;gap:10px;align-items:center}
+  .fab{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 24px -8px rgba(0,0,0,.6)}
+  .fab.add{background:var(--coral);color:#fff;font-size:26px;font-weight:300}
+  .fab.cal{background:var(--panel-2);border:1px solid var(--edge);color:var(--dim);font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px}
+
+  /* rationale */
+  .why-box{display:none;margin-top:10px;padding:10px 12px;border-left:2px solid var(--coral);background:var(--coral-soft);border-radius:0 var(--r) var(--r) 0;font-size:12px;line-height:1.5;color:var(--white)}
+  .why-box b{font-family:'Quicksand',sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;color:var(--coral);font-size:10.5px;display:block;margin-bottom:3px}
+  body.why .why-box{display:block;animation:reveal .3s ease}
+
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(239,77,63,.5)}70%{box-shadow:0 0 0 6px rgba(239,77,63,0)}100%{box-shadow:0 0 0 0 rgba(239,77,63,0)}}
+  @keyframes reveal{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+  .stream::-webkit-scrollbar{width:5px}
+  .stream::-webkit-scrollbar-thumb{background:var(--rivet);border-radius:3px}
+
+  /* ---- view switching ---- */
+  .view{display:none}
+  .view.active{display:flex;flex-direction:column;flex:1;min-height:0}
+
+  /* crew view */
+  .add-crew-btn{display:inline-flex;align-items:center;gap:8px;background:var(--coral);border:none;color:#fff;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;padding:10px 16px;border-radius:100px;cursor:pointer;box-shadow:0 8px 20px -8px rgba(239,77,63,.6)}
+  .add-crew-btn span{font-size:17px;line-height:1}
+
+  .crew-tabs{display:flex;gap:8px;padding:8px 22px 0;border-bottom:1px solid var(--edge-soft);margin:6px 22px 0}
+  .ctab{background:none;border:none;border-bottom:2px solid transparent;color:var(--dim);font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;padding:10px 6px;cursor:pointer;display:flex;align-items:center;gap:8px;margin-bottom:-1px}
+  .ctab:hover{color:var(--white)}
+  .ctab.active{color:var(--white);border-bottom-color:var(--coral)}
+  .ct-count{font-size:11px;background:rgba(255,255,255,.08);color:var(--dim);padding:1px 8px;border-radius:100px}
+  .ctab.active .ct-count{background:var(--coral-soft);color:var(--coral)}
+
+  .ctab-panel{display:none;padding:18px 22px 26px}
+  .ctab-panel.active{display:block}
+
+  .filters{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+  .frow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .flabel{font-family:'Quicksand',sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:10.5px;color:var(--faint);width:46px}
+  .chipf{background:var(--panel);border:1px solid var(--edge);color:var(--dim);font-size:12.5px;padding:6px 13px;border-radius:100px;cursor:pointer;font-family:inherit;transition:all .12s}
+  .chipf:hover{color:var(--white);border-color:var(--rivet)}
+  .chipf.active{background:var(--coral-soft);border-color:rgba(239,77,63,.4);color:var(--coral)}
+
+  .crew-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+  .ccard{background:var(--card);border:1px solid var(--edge);border-radius:var(--r);padding:16px;display:flex;flex-direction:column}
+  .cc-top{display:flex;gap:12px;align-items:center;margin-bottom:11px}
+  .cc-av{width:46px;height:46px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#14161f}
+  .cc-name{font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;display:flex;align-items:center;gap:6px}
+  .cc-verify{width:14px;height:14px;flex-shrink:0}
+  .cc-role{font-size:12px;color:var(--coral);font-weight:500;margin-top:1px}
+  .cc-meta{font-size:11.5px;color:var(--dim);line-height:1.55;margin-bottom:6px}
+  .cc-meta .loc{display:flex;align-items:center;gap:5px}
+  .cc-stats{display:flex;gap:12px;font-size:11px;color:var(--dim);padding:9px 0;border-top:1px solid var(--edge-soft);border-bottom:1px solid var(--edge-soft);margin-bottom:11px}
+  .cc-stats b{color:var(--white);font-weight:600;font-variant-numeric:tabular-nums}
+  .cc-star{color:var(--amber)}
+  .cc-mutual{font-size:11px;color:var(--faint);margin-bottom:11px;display:flex;align-items:center;gap:6px}
+  .cc-mutual b{color:var(--dim);font-weight:500}
+  .cc-add{margin-top:auto;background:none;border:1.5px solid var(--coral);color:var(--coral);font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;padding:9px;border-radius:8px;cursor:pointer;transition:all .12s}
+  .cc-add:hover{background:var(--coral-soft)}
+  .cc-add.added{background:rgba(63,201,168,.12);border-color:rgba(63,201,168,.4);color:var(--teal);cursor:default}
+
+  /* roster */
+  .roster{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+  .rmember{background:var(--card);border:1px solid var(--edge);border-radius:var(--r);padding:13px;display:flex;align-items:center;gap:12px}
+  .ravatar{width:40px;height:40px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;color:#14161f}
+  .rinfo{flex:1;min-width:0}
+  .rn{font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px}
+  .rr{font-size:12px;color:var(--dim)}
+  .rtag{font-family:'Quicksand',sans-serif;font-weight:600;font-size:10px;letter-spacing:.04em;padding:2px 9px;border-radius:100px;background:rgba(255,255,255,.06);color:var(--faint)}
+  .rtag.new{background:var(--coral-soft);color:var(--coral)}
+
+  /* modal */
+  .modal-bg{display:none;position:fixed;inset:0;background:rgba(8,9,16,.66);z-index:50;align-items:center;justify-content:center;backdrop-filter:blur(3px)}
+  .modal-bg.open{display:flex}
+  .modal{background:var(--panel);border:1px solid var(--edge);border-radius:14px;padding:22px;width:min(380px,90vw);box-shadow:0 30px 80px -20px rgba(0,0,0,.7)}
+  .modal-h{font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;margin-bottom:16px}
+  .fld{display:block;margin-bottom:13px}
+  .fld span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--faint);margin-bottom:6px}
+  .fld input,.fld select{width:100%;background:rgba(0,0,0,.24);border:1px solid var(--edge);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:13.5px;outline:none}
+  .fld input:focus,.fld select:focus{border-color:var(--coral)}
+  .modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:18px}
+  .btn-ghost{background:none;border:1px solid var(--edge);color:var(--dim);font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;padding:9px 16px;border-radius:8px;cursor:pointer}
+  .btn-ghost:hover{color:var(--white)}
+  .btn-coral{background:var(--coral);border:none;color:#fff;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;padding:9px 18px;border-radius:8px;cursor:pointer}
+
+  /* ---- map view ---- */
+  .maparea{display:grid;grid-template-columns:1.55fr 1fr;gap:14px;padding:16px 22px 26px}
+  @media (max-width:820px){.maparea{grid-template-columns:1fr}}
+  .mapcanvas{padding:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#191D2E,#221C36)}
+  .routemap{width:100%;height:auto;max-height:560px}
+  .routemap .num{font-family:'Quicksand',sans-serif;font-weight:700;font-size:11px;fill:var(--coral)}
+  .routemap .city{font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;fill:var(--white)}
+  .routemap .sub{font-size:11px;fill:var(--dim)}
+  .flow{animation:dash 1.5s linear infinite}
+  @keyframes dash{to{stroke-dashoffset:-48}}
+
+  .routelist{align-self:start}
+  .leg{display:grid;grid-template-columns:26px 1fr auto;gap:11px;align-items:center;padding:11px 0}
+  .leg + .leg{border-top:1px solid var(--edge-soft)}
+  .lnum{width:24px;height:24px;border-radius:50%;background:var(--coral-soft);border:1.5px solid var(--coral);color:var(--coral);font-family:'Quicksand',sans-serif;font-weight:700;font-size:12px;display:grid;place-items:center}
+  .lnum.end{background:rgba(244,180,60,.14);border-color:var(--amber);color:var(--amber)}
+  .linfo .lc{font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px}
+  .linfo .ld{font-size:11.5px;color:var(--dim);margin-top:1px}
+  .ldrive{text-align:right;font-size:12px;color:var(--dim);font-variant-numeric:tabular-nums;line-height:1.3}
+  .ldrive small{display:block;color:var(--faint);font-size:10.5px}
+  .ldrive.done{color:var(--amber);font-size:12px}
+  .leg-total{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:13px;border-top:1px solid var(--edge);font-size:12px;color:var(--dim)}
+  .leg-total b{font-family:'Quicksand',sans-serif;font-weight:700;color:var(--white);font-variant-numeric:tabular-nums}
+
+  /* ---- shared view scaffolding ---- */
+  .vbody{padding:16px 22px 28px}
+  @media(max-width:680px){.vbody{padding:14px 16px 24px}}
+  .statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(146px,1fr));gap:12px;margin-bottom:16px}
+  .stat-card{background:var(--card);border:1px solid var(--edge);border-radius:var(--r);padding:14px 16px}
+  .stat-card .n{font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;font-variant-numeric:tabular-nums;line-height:1}
+  .stat-card .n.coral{color:var(--coral)}.stat-card .n.teal{color:var(--teal)}.stat-card .n.amber{color:var(--amber)}
+  .stat-card .l{font-size:10.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.07em;margin-top:5px}
+  .tablecard{padding:16px}
+  .tscroll{overflow-x:auto}
+  .dtable{width:100%;border-collapse:collapse;font-size:13px;min-width:540px}
+  .dtable th{text-align:left;font-family:'Quicksand',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.07em;font-size:10.5px;color:var(--faint);padding:0 12px 11px;border-bottom:1px solid var(--edge)}
+  .dtable td{padding:12px;border-bottom:1px solid var(--edge-soft);color:var(--dim);vertical-align:middle}
+  .dtable tbody tr:last-child td{border-bottom:none}
+  .dtable tr:hover td{background:rgba(255,255,255,.02)}
+  .tcell{font-family:'Quicksand',sans-serif;font-weight:600;color:var(--white)}
+  .tnum{font-variant-numeric:tabular-nums}
+  .pill{display:inline-flex;align-items:center;gap:6px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.02em;padding:3px 10px;border-radius:100px;white-space:nowrap}
+  .pill .dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+  .pill.green{background:rgba(63,201,168,.14);color:var(--teal)}
+  .pill.amber{background:rgba(244,180,60,.14);color:var(--amber)}
+  .pill.coral{background:var(--coral-soft);color:var(--coral)}
+  .pill.grey{background:rgba(255,255,255,.06);color:var(--dim)}
+  .addbtn{display:inline-flex;align-items:center;gap:7px;background:var(--coral);border:none;color:#fff;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;padding:9px 15px;border-radius:100px;cursor:pointer}
+  .addbtn span{font-size:16px;line-height:1}
+  .note-link{font-size:12px;color:var(--faint);margin-top:12px}
+  .note-link b{color:var(--coral);font-weight:500}
+
+  /* schedule timeline */
+  .tline .sched-row{grid-template-columns:64px 1fr}
+  .tline .sched-row.done .nm{color:var(--dim)}.tline .sched-row.done .t{color:var(--faint)}
+  .dept{font-family:'Quicksand',sans-serif;font-weight:600;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:1px 7px;border-radius:3px;border:1px solid var(--rivet);color:var(--faint);margin-left:8px}
+
+  /* set list */
+  .song{display:grid;grid-template-columns:30px 1fr auto;gap:12px;align-items:center;padding:10px 0}
+  .song + .song{border-top:1px solid var(--edge-soft)}
+  .song .sn{font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;color:var(--coral);text-align:center}
+  .song .st{font-weight:500;font-size:14px}
+  .song .st small{color:var(--faint);font-size:11px;margin-left:8px}
+  .song .sd{font-variant-numeric:tabular-nums;font-size:12px;color:var(--dim)}
+  .set-divider{display:flex;align-items:center;gap:10px;margin:16px 0 4px;font-family:'Quicksand',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;color:var(--amber)}
+  .set-divider::after{content:"";flex:1;height:1px;background:var(--edge)}
+
+  /* advance cards */
+  .adv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+  .adv-card .av-h{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+  .adv-card .av-city{font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px}
+  .adv-card .av-sub{font-size:11.5px;color:var(--dim);margin-top:2px}
+  .adv-card .av-pct{font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;font-variant-numeric:tabular-nums}
+  .adv-item{display:flex;align-items:center;gap:9px;padding:5px 0;font-size:12.5px;color:var(--dim)}
+  .adv-item .ck{width:16px;height:16px;border-radius:5px;border:1.6px solid var(--rivet);flex-shrink:0;display:grid;place-items:center}
+  .adv-item.ok{color:var(--white)}
+  .adv-item.ok .ck{background:var(--teal);border-color:var(--teal)}
+  .adv-item.ok .ck svg{width:10px;height:10px;stroke:#13261f;stroke-width:2.6;fill:none}
+  .adv-prog{height:6px;border-radius:4px;background:rgba(255,255,255,.06);overflow:hidden;margin-top:12px}
+  .adv-prog i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--coral),#f6845a)}
+
+  /* attachments */
+  .file{display:grid;grid-template-columns:38px 1fr auto;gap:12px;align-items:center;padding:11px 0}
+  .file + .file{border-top:1px solid var(--edge-soft)}
+  .fic{width:38px;height:38px;border-radius:8px;display:grid;place-items:center;font-family:'Quicksand',sans-serif;font-weight:700;font-size:10px;color:#fff}
+  .fic.pdf{background:#d8553e}.fic.img{background:#3fa0c9}.fic.doc{background:#5b8def}.fic.xls{background:#3fc9a8}
+  .fname{font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px}
+  .fsub{font-size:11.5px;color:var(--dim);margin-top:1px}
+  .fmeta{font-size:11px;color:var(--faint);text-align:right;line-height:1.5;white-space:nowrap}
+
+  /* ============ MENOS LABS CONTACT + FOOTER ============ */
+  .ml-contact{max-width:1280px;margin:36px auto 0;padding-top:32px;border-top:1px solid var(--edge-soft)}
+  .ml-eyebrow{font-family:'Quicksand',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:11px;color:var(--coral)}
+  .ml-h2{font-family:'Quicksand',sans-serif;font-weight:700;font-size:clamp(22px,3vw,30px);margin-top:8px;line-height:1.1}
+  .ml-h2 em{color:var(--coral);font-style:normal}
+  .ml-contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:18px;align-items:start}
+  @media(max-width:760px){.ml-contact-grid{grid-template-columns:1fr;gap:20px}}
+  .ml-desc{color:var(--dim);font-size:14px;max-width:420px;line-height:1.6}
+  .ml-links{display:flex;flex-direction:column;gap:12px;margin-top:18px}
+  .ml-link{display:inline-flex;align-items:center;gap:9px;color:var(--dim);text-decoration:none;font-size:13.5px;transition:color .12s}
+  .ml-link svg{color:var(--coral)}
+  .ml-link:hover{color:var(--white)}
+  .ml-form{display:flex;flex-direction:column;gap:11px}
+  .form-input{width:100%;background:rgba(0,0,0,.22);border:1px solid var(--edge);border-radius:9px;padding:12px 14px;color:var(--white);font-family:inherit;font-size:13.5px;outline:none;transition:border-color .12s}
+  .form-input::placeholder{color:var(--faint)}
+  .form-input:focus{border-color:var(--coral)}
+  textarea.form-input{min-height:96px;resize:vertical}
+  .form-submit{background:var(--coral);border:none;color:#fff;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;padding:12px;border-radius:9px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:filter .12s}
+  .form-submit:hover{filter:brightness(1.08)}
+  .form-submit span{transition:transform .15s}
+  .form-submit:hover span{transform:translateX(3px)}
+  .ml-success{display:none;margin-top:10px;font-size:13px;color:var(--coral);text-align:center}
+
+  .ml-footer{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;max-width:1280px;margin:30px auto 6px;padding:22px 0 4px;border-top:1px solid var(--edge-soft)}
+  .ml-foot-logo{font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:var(--white);text-decoration:none}
+  .ml-foot-logo span{color:var(--coral)}
+  .ml-foot-copy{font-size:12px;color:var(--faint)}
+  .ml-foot-li{color:var(--dim);opacity:.55;transition:opacity .15s,transform .2s;display:inline-flex}
+  .ml-foot-li:hover{opacity:1;transform:scale(1.1)}
+  body.day .form-input{background:rgba(0,0,0,.04)}
+
+  /* app footer */
+  .appfoot{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:11px 22px;border-top:1px solid var(--edge-soft);background:rgba(0,0,0,.18);font-size:12px;color:var(--faint)}
+  .appfoot .seg{display:flex;align-items:center;gap:7px;padding:0 18px;white-space:nowrap}
+  .appfoot .seg + .seg{border-left:1px solid var(--edge)}
+  .appfoot .heart{color:var(--coral)}
+  .appfoot .wx{color:var(--dim);cursor:default}
+  .appfoot .wx svg{width:15px;height:15px}
+  .appfoot .wx b{color:var(--white);font-weight:600;font-variant-numeric:tabular-nums}
+  .appfoot .wx .alert{margin-left:8px;color:var(--amber);font-weight:500;display:inline-flex;align-items:center;gap:5px}
+  .ic.theme{cursor:pointer;transition:color .12s}
+  .ic.theme:hover{color:var(--white)}
+  .theme .i-sun{display:none}
+  body.day .theme .i-moon{display:none}
+  body.day .theme .i-sun{display:block}
+
+  /* ============ DAY MODE ============ */
+  body.day{
+    --panel:#FFFFFF; --panel-2:#F4F5FA; --card:#FFFFFF;
+    --edge:#E1E3EE; --edge-soft:#ECEEF5; --rivet:#C2C6D6;
+    --white:#1C1F2B; --dim:#5A6072; --faint:#9298AA;
+    --coral-soft:rgba(239,77,63,.12);
+    --bg-top:#EEF0F6; --bg-bot:#E6E4F0;
+    background:
+      radial-gradient(900px 700px at 78% 115%, rgba(165,115,205,.13), transparent 62%),
+      radial-gradient(700px 500px at 12% 0%, rgba(95,125,205,.10), transparent 60%),
+      linear-gradient(160deg,var(--bg-top),var(--bg-bot));
+  }
+  body.day .app{background:linear-gradient(160deg,rgba(255,255,255,.72),rgba(245,244,251,.72));box-shadow:0 30px 70px -42px rgba(60,60,95,.30)}
+  body.day .card{box-shadow:0 1px 3px rgba(60,60,95,.06)}
+  body.day .side{background:rgba(0,0,0,.022)}
+  body.day .ver .arrows span{background:rgba(0,0,0,.05)}
+  body.day .search{background:rgba(0,0,0,.04)}
+  body.day .burn{background:rgba(0,0,0,.07)}
+  body.day .cat .bar{background:rgba(0,0,0,.06)}
+  body.day .msg .nm .role{background:rgba(0,0,0,.05)}
+  body.day .msg.bot .sched-inline{border-top-color:rgba(0,0,0,.08)}
+  body.day .compose input{background:rgba(0,0,0,.04)}
+  body.day .ct-count{background:rgba(0,0,0,.06)}
+  body.day .rtag{background:rgba(0,0,0,.05)}
+  body.day .modal{box-shadow:0 30px 80px -22px rgba(60,60,95,.32)}
+  body.day .fld input,body.day .fld select{background:rgba(0,0,0,.04)}
+  body.day .mapcanvas{background:linear-gradient(160deg,#F5F6FC,#EDEBF6)}
+  body.day .appfoot{background:rgba(0,0,0,.022)}
+  body.day .routemap g line{stroke:rgba(0,0,0,.05)}
+  body.day .routemap circle{fill:#FFFFFF}
+  body.day .dtable tr:hover td{background:rgba(0,0,0,.02)}
+  body.day .pill.grey{background:rgba(0,0,0,.05)}
+  body.day .adv-prog{background:rgba(0,0,0,.06)}
+  body.day .avatar-top{background:linear-gradient(135deg,#c7ccde,#aab0c8)}
+</style>
+</head>
+<body>
+
+  <div class="intro">
+    <div>
+      <div class="eyebrow-ml"><a href="https://menoslabs.com/" target="_blank" rel="noopener">Menos Labs</a> · Case Study</div>
+      <h1>A lift in <span>customer experience</span></h1>
+      <p>Our client — an established event &amp; touring management platform — came to us for a lift in their customer experience: a dated interface their loyal users had outgrown. <b>Menos Labs' approach:</b> evolve the product's own identity instead of replacing it. We kept the look, navigation, and muscle memory their veterans rely on, and reworked the screen to surface what actually drives their day — budget, schedule, people, and communication. Toggle the rationale to see the thinking behind each decision.</p>
+    </div>
+    <button class="toggle" id="toggle" aria-pressed="false"><span class="dot"></span> Show design rationale</button>
+  </div>
+
+  <div class="app">
+    <!-- SIDEBAR -->
+    <aside class="side">
+      <div class="nav-item active" data-view="dashboard"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 9.5V21h14V9.5"/></svg> Dashboard</div>
+      <div class="nav-item" data-view="events"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9 1 5.5L12 16.5 7 18.2l1-5.5-4-3.9 5.5-.8z"/></svg> Events</div>
+      <div class="nav-item" data-view="hotels"><svg viewBox="0 0 24 24"><path d="M3 21V7l9-4 9 4v14M3 21h18M9 21v-5h6v5"/></svg> Hotels</div>
+      <div class="nav-item" data-view="travel"><svg viewBox="0 0 24 24"><path d="M2 16l9-4 9 4M11 12V4l3 1v6"/></svg> Travel</div>
+      <div class="nav-item" data-view="map"><svg viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg> Map</div>
+      <div class="nav-item" data-view="schedule"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg> Schedule</div>
+      <div class="nav-item" data-view="tasks"><svg viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M3 6h.01M3 12h.01M3 18h.01"/></svg> Tasks &amp; Notes</div>
+      <div class="nav-item" data-view="advance"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg> Advance</div>
+      <div class="nav-item" data-view="crew"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5"/><circle cx="17.5" cy="8.5" r="2.4"/><path d="M15.2 14.3c2.4.3 4.3 2 4.3 4.7"/></svg> Crew</div>
+      <div class="nav-item" data-view="guestlist"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z M4 10h16"/></svg> Guest List</div>
+      <div class="nav-item" data-view="setlist"><svg viewBox="0 0 24 24"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="19" cy="16" r="3"/></svg> Set List</div>
+      <div class="nav-item" data-view="accounting"><svg viewBox="0 0 24 24"><path d="M3 7h18v12H3z M3 11h18M7 15h4"/></svg> Accounting</div>
+      <div class="nav-item" data-view="attachments"><svg viewBox="0 0 24 24"><path d="M21 12.5l-8.5 8.5a5 5 0 01-7-7l9-9a3.5 3.5 0 015 5l-9 9a2 2 0 01-3-3l8-8"/></svg> Attachments</div>
+      <div class="nav-spacer"></div>
+      <div class="foot">
+        <div class="nav-item"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0115-6.7L21 8M21 12a9 9 0 01-15 6.7L3 16M21 4v4h-4M3 20v-4h4"/></svg> Sync</div>
+        <div class="nav-item"><svg viewBox="0 0 24 24"><path d="M3 11l18-7-7 18-3-7-8-4z"/></svg> Send Message</div>
+        <div class="ver">Platform v3.9.2<span class="arrows"><span>«</span><span>»</span></span></div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="main">
+      <!-- topbar -->
+      <div class="topbar">
+        <div class="switch">
+          <span class="org head-font">Blaster Productions</span>
+          <span class="car">▾</span>
+          <span class="tour head-font">Corvette Summer</span>
+          <span class="car">▾</span>
+          <span class="gear">⚙</span>
+        </div>
+        <div class="spacer"></div>
+        <div class="search"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg> Search…</div>
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h4M7 13h2"/></svg></div>
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></div>
+        <div class="ic theme" id="themeBtn" role="button" tabindex="0" title="Switch to Day Mode" aria-label="Toggle day or night mode">
+          <svg class="i-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+          <svg class="i-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>
+        </div>
+        <div class="avatar-top"></div>
+      </div>
+
+      <!-- ============ DASHBOARD VIEW ============ -->
+      <div id="view-dashboard" class="view active">
+      <!-- page head -->
+      <div class="pagehead">
+        <div class="venue">
+          <h2>House of Blues Anaheim</h2>
+          <p>Anaheim, CA 92802 · Day 14 of 23</p>
+        </div>
+        <div class="date">
+          <div class="clock-now"><span class="ct" id="venueClock">4:51 PM</span><span class="cz">Anaheim · PDT</span></div>
+          <div class="d">Wednesday, June 24, 2026 PDT</div>
+          <div class="badge"><span class="pp"></span> Show Day</div>
+        </div>
+      </div>
+
+      <!-- dashboard grid -->
+      <div class="dash">
+
+        <!-- COLUMN A -->
+        <div class="col">
+          <div class="card">
+            <div class="card-h">
+              <svg viewBox="0 0 24 24"><path d="M3 7h18v12H3z M3 11h18M7 15h4"/></svg>
+              <span class="lbl">Tour Budget</span><span class="grow"></span>
+              <span class="chip over">3.5% over pace</span>
+            </div>
+            <div class="bud-top">
+              <div>
+                <div class="bud-spent">$312,400</div>
+                <div class="bud-of">spent of <b>$485,000</b> budget</div>
+              </div>
+              <div class="bud-remain"><div class="n">$172,600</div><div class="l">Remaining</div></div>
+            </div>
+            <div class="burn"><div class="fill"></div><div class="pace"></div></div>
+            <div class="burn-leg"><span>64% spent</span><span class="pace-note">▏Day 14/23 — 61% through tour</span></div>
+
+            <div class="cats">
+              <div class="cat"><span class="nm">Production</span><span class="bar"><i class="hot" style="width:68%"></i></span><span class="amt">$98.2k</span></div>
+              <div class="cat"><span class="nm">Travel / Fuel</span><span class="bar"><i style="width:67%"></i></span><span class="amt">$61.5k</span></div>
+              <div class="cat"><span class="nm">Hotels</span><span class="bar"><i style="width:67%"></i></span><span class="amt">$52.3k</span></div>
+              <div class="cat"><span class="nm">Crew / Per Diem</span><span class="bar"><i style="width:57%"></i></span><span class="amt">$48.6k</span></div>
+              <div class="cat"><span class="nm">Catering</span><span class="bar"><i style="width:74%"></i></span><span class="amt">$39.8k</span></div>
+            </div>
+          </div>
+
+          <div class="why-box">
+            <b>Money is the headline now</b>
+            On a tour, the question that wakes a TM at 4am is "are we on budget?" — yet today that lives behind the Accounting tab. Promoting spend-vs-budget to the dashboard, with a pace marker that flags being ahead of burn, turns the home screen from a clock into a control panel.
+          </div>
+
+          <div class="card">
+            <div class="card-h"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg><span class="lbl">Today · Schedule</span><span class="grow"></span><span class="more">›</span></div>
+            <div class="sched-row"><span class="t">8:00a</span><span class="nm">Load-in <small>done</small></span></div>
+            <div class="sched-row now"><span class="t">4:00p</span><span class="nm">Soundcheck <small>now</small></span></div>
+            <div class="sched-row"><span class="t">6:00p</span><span class="nm">Doors</span></div>
+            <div class="sched-row"><span class="t">9:00p</span><span class="nm">Headline set <small>curfew 11:00p</small></span></div>
+            <div class="sched-row"><span class="t">12:30a</span><span class="nm">Bus call — depart Phoenix</span></div>
+          </div>
+        </div>
+
+        <!-- COLUMN B -->
+        <div class="col">
+          <div class="card">
+            <div class="card-h"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8M3 12h6M3 7h10M3 17h7"/></svg><span class="lbl">Tasks &amp; Notes</span><span class="grow"></span><span class="more">+</span></div>
+            <div class="task done"><div class="check"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></div><div class="tx">Send day sheet to all crew<div class="meta"><span>Done 9:14a</span></div></div></div>
+            <div class="task"><div class="check"></div><div class="tx">Confirm 12:30a bus call with driver<div class="meta"><span class="who">You · TM</span><span class="due">Due 5:00p</span></div></div></div>
+            <div class="task"><div class="check"></div><div class="tx">Restock crew catering &amp; waters<div class="meta"><span class="who">Rick V. · PM</span><span class="due">Due 2:00p</span></div></div></div>
+            <div class="task"><div class="check"></div><div class="tx">Promoter settlement after set<div class="meta"><span class="who">Casey L.</span><span>Tonight</span></div></div></div>
+            <div style="height:6px"></div>
+            <div class="note"><span class="pin">📌</span><span class="tx">Hard curfew 11:00p — venue cuts power, no encore buffer.</span></div>
+            <div class="note"><span class="pin">📌</span><span class="tx">Bus parking permit is with security at Gate C.</span></div>
+          </div>
+
+          <div class="why-box">
+            <b>Tasks that carry accountability</b>
+            A note nobody owns is a note nobody does. Every task names a person and a time, so the dashboard answers "what's still open, who has it, when's it due" at a glance — and pinned notes hold the day's two or three landmines that don't fit a checkbox.
+          </div>
+
+          <div class="card">
+            <div class="card-h"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span class="lbl">Venue</span><span class="grow"></span><span class="more">›</span></div>
+            <div class="vrow"><div><div class="vn">House of Blues Anaheim</div>400 Disney Way, Anaheim CA 92802<br>Capacity 1,000 · Load-in Dock B · Curfew 11:00p</div></div>
+          </div>
+        </div>
+
+        <!-- COLUMN C — CREW CHAT -->
+        <div class="col">
+          <div class="card chat-card">
+            <div class="chat-h">
+              <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H8l-5 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              <span class="lbl">Crew Chat</span>
+              <span class="on"><span class="d"></span> 6 crew online</span>
+            </div>
+            <div class="stream" id="stream">
+              <div class="msg"><div class="av" style="background:#f4b43c">RV</div><div class="bub"><div class="nm">Rick V. <span class="role">PM</span><span class="time">3:38p</span></div><div class="tx">Load-in's done, stage is all yours.</div></div></div>
+              <div class="msg me"><div class="av">DC</div><div class="bub"><div class="nm">You <span class="role">TM</span><span class="time">3:40p</span></div><div class="tx">Nice. Soundcheck still on for 4?</div></div></div>
+              <div class="msg"><div class="av" style="background:#6fcf7f">SO</div><div class="bub"><div class="nm">Sam O. <span class="role">FOH</span><span class="time">3:41p</span></div><div class="tx">Need the updated set list before we line check 🙏</div></div></div>
+              <div class="msg bot"><div class="av">★</div><div class="bub"><div class="nm">Tour Assistant <span class="role">AUTO</span><span class="time">3:41p</span></div><div class="tx">Set list was updated 2:10p — it's in Set List now. Quick reference:<div class="sched-inline"><span>Soundcheck<b>4:00p</b></span><span>Doors<b>6:00p</b></span><span>Set<b>9:00p</b></span></div></div></div></div>
+              <div class="msg"><div class="av alt" style="background:#9aa0c0">MR</div><div class="bub"><div class="nm">Maya R. <span class="role">MERCH</span><span class="time">3:44p</span></div><div class="tx">Where do I load merch in?</div></div></div>
+            </div>
+            <div class="compose">
+              <input id="chatInput" type="text" placeholder="Message the crew…" aria-label="Message the crew">
+              <button class="send" id="sendBtn" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M3 11l18-7-7 18-3-7-8-4z"/></svg></button>
+            </div>
+          </div>
+
+          <div class="why-box">
+            <b>One thread, not ten group texts</b>
+            Crew comms today scatter across SMS, WhatsApp, and walkies — and the TM is the bottleneck. An in-app thread keeps every question against the show it belongs to, and an auto-assistant answers the repetitive ones ("what time is X?") instantly, so the TM only sees what actually needs them.
+          </div>
+        </div>
+
+      </div>
+
+      </div><!-- /view-dashboard -->
+
+      <!-- ============ CREW VIEW ============ -->
+      <div id="view-crew" class="view">
+        <div class="pagehead">
+          <div class="venue">
+            <h2>Crew Network</h2>
+            <p>Find and book vetted production crew — nationally or in your region.</p>
+          </div>
+          <div class="date">
+            <button class="add-crew-btn" id="openAdd"><span>+</span> Add crew member</button>
+          </div>
+        </div>
+
+        <div class="crew-tabs">
+          <button class="ctab active" data-tab="network">Network <span class="ct-count">128</span></button>
+          <button class="ctab" data-tab="roster">This Tour · Corvette Summer <span class="ct-count" id="rosterCount">8</span></button>
+        </div>
+
+        <!-- NETWORK TAB -->
+        <div id="tab-network" class="ctab-panel active">
+          <div class="filters">
+            <div class="frow">
+              <span class="flabel">Role</span>
+              <button class="chipf active" data-role="all">All</button>
+              <button class="chipf" data-role="Sound Engineer">Sound Engineer</button>
+              <button class="chipf" data-role="Lighting">Lighting</button>
+              <button class="chipf" data-role="Catering">Catering</button>
+              <button class="chipf" data-role="Photography">Photography</button>
+              <button class="chipf" data-role="Backline">Backline</button>
+              <button class="chipf" data-role="Stage">Stage</button>
+            </div>
+            <div class="frow">
+              <span class="flabel">Reach</span>
+              <button class="chipf region active" data-region="national">National</button>
+              <button class="chipf region" data-region="local">In-region · SoCal</button>
+            </div>
+          </div>
+
+          <div class="crew-grid" id="crewGrid">
+            <!-- cards injected by JS -->
+          </div>
+        </div>
+
+        <!-- ROSTER TAB -->
+        <div id="tab-roster" class="ctab-panel">
+          <div class="roster" id="rosterList">
+            <div class="rmember"><div class="ravatar" style="background:#ef4d3f">DC</div><div class="rinfo"><div class="rn">Dana Cole</div><div class="rr">Tour Manager</div></div><span class="rtag">Core</span></div>
+            <div class="rmember"><div class="ravatar" style="background:#f4b43c">RV</div><div class="rinfo"><div class="rn">Rick Vasquez</div><div class="rr">Production Manager</div></div><span class="rtag">Core</span></div>
+            <div class="rmember"><div class="ravatar" style="background:#6fcf7f">SO</div><div class="rinfo"><div class="rn">Sam Okafor</div><div class="rr">Sound Engineer · FOH</div></div><span class="rtag">Core</span></div>
+            <div class="rmember"><div class="ravatar" style="background:#6a72ff">JL</div><div class="rinfo"><div class="rn">Jess Lin</div><div class="rr">Lighting Designer</div></div><span class="rtag">Core</span></div>
+            <div class="rmember"><div class="ravatar" style="background:#a05ad0">MT</div><div class="rinfo"><div class="rn">Marco Tan</div><div class="rr">Backline Tech</div></div><span class="rtag">Core</span></div>
+            <div class="rmember"><div class="ravatar" style="background:#3fc9a8">PK</div><div class="rinfo"><div class="rn">Priya Kaur</div><div class="rr">Catering Lead</div></div><span class="rtag">Core</span></div>
+            <div class="rmember"><div class="ravatar" style="background:#e07a9a">NB</div><div class="rinfo"><div class="rn">Nina Brooks</div><div class="rr">Stage Manager</div></div><span class="rtag">Core</span></div>
+            <div class="rmember"><div class="ravatar" style="background:#5b8def">TH</div><div class="rinfo"><div class="rn">Theo Hart</div><div class="rr">Tour Photographer</div></div><span class="rtag">Core</span></div>
+          </div>
+        </div>
+      </div><!-- /view-crew -->
+
+      <!-- ============ MAP VIEW ============ -->
+      <div id="view-map" class="view">
+        <div class="pagehead">
+          <div class="venue">
+            <h2>Tour Routing</h2>
+            <p>Corvette Summer · Southeast run · 5 shows</p>
+          </div>
+          <div class="date">
+            <div class="d">1,346 mi total drive</div>
+            <div class="badge"><span class="pp"></span> Routing locked</div>
+          </div>
+        </div>
+
+        <div class="maparea">
+          <div class="mapcanvas card">
+            <svg viewBox="0 0 600 640" class="routemap" role="img" aria-label="Tour route from Miami to Nashville">
+              <defs>
+                <linearGradient id="routeg" x1="0" y1="1" x2="1" y2="0">
+                  <stop offset="0" stop-color="#EF4D3F"/>
+                  <stop offset="1" stop-color="#F4B43C"/>
+                </linearGradient>
+                <radialGradient id="region" cx="52%" cy="42%" r="62%">
+                  <stop offset="0" stop-color="rgba(239,77,63,.10)"/>
+                  <stop offset="1" stop-color="rgba(239,77,63,0)"/>
+                </radialGradient>
+              </defs>
+              <rect x="0" y="0" width="600" height="640" fill="url(#region)"/>
+              <!-- graticule -->
+              <g stroke="rgba(255,255,255,.045)" stroke-width="1">
+                <line x1="120" y1="0" x2="120" y2="640"/><line x1="240" y1="0" x2="240" y2="640"/>
+                <line x1="360" y1="0" x2="360" y2="640"/><line x1="480" y1="0" x2="480" y2="640"/>
+                <line x1="0" y1="130" x2="600" y2="130"/><line x1="0" y1="270" x2="600" y2="270"/>
+                <line x1="0" y1="410" x2="600" y2="410"/><line x1="0" y1="540" x2="600" y2="540"/>
+              </g>
+              <!-- route -->
+              <path d="M469,507 L394,344 L254,222 L436,169 L132,136" fill="none" stroke="url(#routeg)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/>
+              <path class="flow" d="M469,507 L394,344 L254,222 L436,169 L132,136" fill="none" stroke="url(#routeg)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 14"/>
+
+              <!-- 1 Miami -->
+              <circle cx="469" cy="507" r="11" fill="#1E2336" stroke="#EF4D3F" stroke-width="2.5"/>
+              <text x="469" y="511" text-anchor="middle" class="num">1</text>
+              <text x="487" y="503" class="city">Miami, FL</text>
+              <text x="487" y="518" class="sub">Jun 26 · Start</text>
+              <!-- 2 Jacksonville -->
+              <circle cx="394" cy="344" r="11" fill="#1E2336" stroke="#EF4D3F" stroke-width="2.5"/>
+              <text x="394" y="348" text-anchor="middle" class="num">2</text>
+              <text x="412" y="340" class="city">Jacksonville, FL</text>
+              <text x="412" y="355" class="sub">Jun 27</text>
+              <!-- 3 Atlanta -->
+              <circle cx="254" cy="222" r="11" fill="#1E2336" stroke="#EF4D3F" stroke-width="2.5"/>
+              <text x="254" y="226" text-anchor="middle" class="num">3</text>
+              <text x="237" y="218" text-anchor="end" class="city">Atlanta, GA</text>
+              <text x="237" y="233" text-anchor="end" class="sub">Jun 29</text>
+              <!-- 4 Charlotte -->
+              <circle cx="436" cy="169" r="11" fill="#1E2336" stroke="#EF4D3F" stroke-width="2.5"/>
+              <text x="436" y="173" text-anchor="middle" class="num">4</text>
+              <text x="454" y="165" class="city">Charlotte, NC</text>
+              <text x="454" y="180" class="sub">Jun 30</text>
+              <!-- 5 Nashville -->
+              <circle cx="132" cy="136" r="11" fill="#1E2336" stroke="#F4B43C" stroke-width="2.5"/>
+              <text x="132" y="140" text-anchor="middle" class="num" style="fill:#F4B43C">5</text>
+              <text x="115" y="132" text-anchor="end" class="city">Nashville, TN</text>
+              <text x="115" y="147" text-anchor="end" class="sub">Jul 2 · End</text>
+            </svg>
+          </div>
+
+          <div class="routelist card">
+            <div class="card-h"><svg viewBox="0 0 24 24"><path d="M2 16l9-4 9 4M11 12V4l3 1v6"/></svg><span class="lbl">Routing</span></div>
+            <div class="leg"><span class="lnum">1</span><div class="linfo"><div class="lc">Miami, FL</div><div class="ld">Fri Jun 26</div></div><div class="ldrive">↓ 345 mi<small>~5h 00m</small></div></div>
+            <div class="leg"><span class="lnum">2</span><div class="linfo"><div class="lc">Jacksonville, FL</div><div class="ld">Sat Jun 27</div></div><div class="ldrive">↓ 346 mi<small>~5h 15m</small></div></div>
+            <div class="leg"><span class="lnum">3</span><div class="linfo"><div class="lc">Atlanta, GA</div><div class="ld">Mon Jun 29</div></div><div class="ldrive">↓ 245 mi<small>~3h 45m</small></div></div>
+            <div class="leg"><span class="lnum">4</span><div class="linfo"><div class="lc">Charlotte, NC</div><div class="ld">Tue Jun 30</div></div><div class="ldrive">↓ 410 mi<small>~6h 15m</small></div></div>
+            <div class="leg"><span class="lnum end">5</span><div class="linfo"><div class="lc">Nashville, TN</div><div class="ld">Thu Jul 2 · Run ends</div></div><div class="ldrive done">●</div></div>
+            <div class="leg-total"><span>Total drive</span><b>1,346 mi · ~20h</b></div>
+          </div>
+        </div>
+      </div><!-- /view-map -->
+
+      <!-- ============ EVENTS ============ -->
+      <div id="view-events" class="view">
+        <div class="pagehead">
+          <div class="venue"><h2>Events</h2><p>Corvette Summer · 7 shows · 6 cities</p></div>
+          <div class="date"><button class="addbtn"><span>+</span> Add date</button></div>
+        </div>
+        <div class="vbody">
+          <div class="statgrid">
+            <div class="stat-card"><div class="n">7</div><div class="l">Shows</div></div>
+            <div class="stat-card"><div class="n teal">3</div><div class="l">Sold out</div></div>
+            <div class="stat-card"><div class="n coral">13,062</div><div class="l">Tickets sold</div></div>
+            <div class="stat-card"><div class="n amber">1</div><div class="l">On hold</div></div>
+          </div>
+          <div class="card tablecard"><div class="tscroll"><table class="dtable">
+            <thead><tr><th>Date</th><th>City</th><th>Venue</th><th>Cap</th><th>Sold</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="tcell">Fri Jun 26</td><td>Miami, FL</td><td>Fillmore Miami Beach</td><td class="tnum">2,500</td><td class="tnum">2,500</td><td><span class="pill green"><span class="dot"></span>Sold out</span></td></tr>
+              <tr><td class="tcell">Sat Jun 27</td><td>Jacksonville, FL</td><td>Daily's Place</td><td class="tnum">5,500</td><td class="tnum">4,120</td><td><span class="pill coral"><span class="dot"></span>On sale</span></td></tr>
+              <tr><td class="tcell">Mon Jun 29</td><td>Atlanta, GA</td><td>Tabernacle</td><td class="tnum">2,600</td><td class="tnum">2,600</td><td><span class="pill green"><span class="dot"></span>Sold out</span></td></tr>
+              <tr><td class="tcell">Tue Jun 30</td><td>Charlotte, NC</td><td>Fillmore Charlotte</td><td class="tnum">2,000</td><td class="tnum">1,540</td><td><span class="pill coral"><span class="dot"></span>On sale</span></td></tr>
+              <tr><td class="tcell">Thu Jul 2</td><td>Nashville, TN</td><td>Ryman Auditorium</td><td class="tnum">2,362</td><td class="tnum">2,362</td><td><span class="pill green"><span class="dot"></span>Sold out</span></td></tr>
+              <tr><td class="tcell">Sat Jul 4</td><td>Memphis, TN</td><td>Minglewood Hall</td><td class="tnum">1,500</td><td class="tnum">—</td><td><span class="pill amber"><span class="dot"></span>Hold</span></td></tr>
+              <tr><td class="tcell">Mon Jul 6</td><td>New Orleans, LA</td><td>House of Blues NOLA</td><td class="tnum">1,000</td><td class="tnum">— </td><td><span class="pill coral"><span class="dot"></span>On sale</span></td></tr>
+            </tbody>
+          </table></div></div>
+        </div>
+      </div>
+
+      <!-- ============ HOTELS ============ -->
+      <div id="view-hotels" class="view">
+        <div class="pagehead">
+          <div class="venue"><h2>Hotels</h2><p>6 bookings · Corvette Summer</p></div>
+          <div class="date"><button class="addbtn"><span>+</span> Add hotel</button></div>
+        </div>
+        <div class="vbody">
+          <div class="statgrid">
+            <div class="stat-card"><div class="n">6</div><div class="l">Properties</div></div>
+            <div class="stat-card"><div class="n">84</div><div class="l">Room-nights</div></div>
+            <div class="stat-card"><div class="n coral">$38.2k</div><div class="l">Committed</div></div>
+            <div class="stat-card"><div class="n amber">2</div><div class="l">Need action</div></div>
+          </div>
+          <div class="card tablecard"><div class="tscroll"><table class="dtable">
+            <thead><tr><th>City</th><th>Hotel</th><th>Check-in</th><th>Check-out</th><th>Rooms</th><th>Conf #</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="tcell">Miami</td><td>Loews Miami Beach</td><td>Jun 25</td><td>Jun 27</td><td class="tnum">14</td><td class="tnum">LMB-88421</td><td><span class="pill green"><span class="dot"></span>Confirmed</span></td></tr>
+              <tr><td class="tcell">Jacksonville</td><td>Marriott Downtown</td><td>Jun 27</td><td>Jun 28</td><td class="tnum">12</td><td class="tnum">MAR-23119</td><td><span class="pill green"><span class="dot"></span>Confirmed</span></td></tr>
+              <tr><td class="tcell">Atlanta</td><td>The Glenn Hotel</td><td>Jun 28</td><td>Jun 30</td><td class="tnum">16</td><td class="tnum">GLN-55230</td><td><span class="pill green"><span class="dot"></span>Confirmed</span></td></tr>
+              <tr><td class="tcell">Charlotte</td><td>Kimpton Tryon Park</td><td>Jun 30</td><td>Jul 1</td><td class="tnum">14</td><td class="tnum">KMP-77410</td><td><span class="pill amber"><span class="dot"></span>On hold</span></td></tr>
+              <tr><td class="tcell">Nashville</td><td>Bobby Hotel</td><td>Jul 1</td><td>Jul 3</td><td class="tnum">18</td><td class="tnum">BOB-31822</td><td><span class="pill green"><span class="dot"></span>Confirmed</span></td></tr>
+              <tr><td class="tcell">Memphis</td><td>Central Station</td><td>Jul 3</td><td>Jul 4</td><td class="tnum">10</td><td class="tnum">—</td><td><span class="pill grey"><span class="dot"></span>Pending</span></td></tr>
+            </tbody>
+          </table></div></div>
+        </div>
+      </div>
+
+      <!-- ============ TRAVEL ============ -->
+      <div id="view-travel" class="view">
+        <div class="pagehead">
+          <div class="venue"><h2>Travel</h2><p>Bus moves &amp; flights · Corvette Summer</p></div>
+          <div class="date"><button class="addbtn"><span>+</span> Add leg</button></div>
+        </div>
+        <div class="vbody">
+          <div class="statgrid">
+            <div class="stat-card"><div class="n">1,346</div><div class="l">Bus miles</div></div>
+            <div class="stat-card"><div class="n">2</div><div class="l">Advance flights</div></div>
+            <div class="stat-card"><div class="n coral">6h</div><div class="l">Next move</div></div>
+            <div class="stat-card"><div class="n">2</div><div class="l">Coaches</div></div>
+          </div>
+          <div class="card tablecard"><div class="tscroll"><table class="dtable">
+            <thead><tr><th>Date</th><th>Leg</th><th>Mode</th><th>Depart</th><th>Arrive</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td class="tcell">Jun 26</td><td>Miami → Jacksonville</td><td><span class="pill coral">Bus</span></td><td>11:30p</td><td>4:30a</td><td>Overnight · 2 coaches</td></tr>
+              <tr><td class="tcell">Jun 28</td><td>Jacksonville → Atlanta</td><td><span class="pill coral">Bus</span></td><td>11:00p</td><td>4:15a</td><td>Overnight</td></tr>
+              <tr><td class="tcell">Jun 29</td><td>Adv. crew → Atlanta</td><td><span class="pill grey">Flight DL2231</span></td><td>6:10a</td><td>7:25a</td><td>PM + LD fly ahead</td></tr>
+              <tr><td class="tcell">Jun 30</td><td>Atlanta → Charlotte</td><td><span class="pill coral">Bus</span></td><td>11:45p</td><td>3:30a</td><td>Overnight</td></tr>
+              <tr><td class="tcell">Jul 1</td><td>Charlotte → Nashville</td><td><span class="pill coral">Bus</span></td><td>11:00p</td><td>5:15a</td><td>Overnight · long drive</td></tr>
+              <tr><td class="tcell">Jul 2</td><td>Adv. crew → Nashville</td><td><span class="pill grey">Flight WN1188</span></td><td>7:00a</td><td>8:05a</td><td>Production flies ahead</td></tr>
+            </tbody>
+          </table></div></div>
+        </div>
+      </div>
+
+      <!-- ============ SCHEDULE ============ -->
+      <div id="view-schedule" class="view">
+        <div class="pagehead">
+          <div class="venue"><h2>Schedule</h2><p>Wed Jun 24 · House of Blues Anaheim · Show Day</p></div>
+          <div class="date"><button class="addbtn"><span>+</span> Add item</button></div>
+        </div>
+        <div class="vbody">
+          <div class="card">
+            <div class="card-h"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg><span class="lbl">Running order</span></div>
+            <div class="tline">
+              <div class="sched-row done"><span class="t">7:30a</span><span class="nm">Bus arrives venue<span class="dept">Logistics</span></span></div>
+              <div class="sched-row done"><span class="t">8:00a</span><span class="nm">Load-in · local crew call<span class="dept">Production</span></span></div>
+              <div class="sched-row done"><span class="t">9:30a</span><span class="nm">Rig &amp; focus<span class="dept">Lighting</span></span></div>
+              <div class="sched-row done"><span class="t">12:00p</span><span class="nm">Crew catering<span class="dept">Catering</span></span></div>
+              <div class="sched-row done"><span class="t">2:00p</span><span class="nm">Line check<span class="dept">Audio</span></span></div>
+              <div class="sched-row now"><span class="t">3:00p</span><span class="nm">Soundcheck — headliner<span class="dept">Audio</span></span></div>
+              <div class="sched-row"><span class="t">4:30p</span><span class="nm">Support soundcheck<span class="dept">Audio</span></span></div>
+              <div class="sched-row"><span class="t">6:00p</span><span class="nm">Doors<span class="dept">FOH</span></span></div>
+              <div class="sched-row"><span class="t">7:00p</span><span class="nm">Support set</span></div>
+              <div class="sched-row"><span class="t">8:30p</span><span class="nm">Headline set · curfew 11:00p</span></div>
+              <div class="sched-row"><span class="t">10:30p</span><span class="nm">Load-out<span class="dept">Production</span></span></div>
+              <div class="sched-row"><span class="t">12:30a</span><span class="nm">Bus call — depart Phoenix<span class="dept">Logistics</span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ TASKS & NOTES ============ -->
+      <div id="view-tasks" class="view">
+        <div class="pagehead">
+          <div class="venue"><h2>Tasks &amp; Notes</h2><p>5 open · 2 done today</p></div>
+          <div class="date"><button class="addbtn"><span>+</span> New task</button></div>
+        </div>
+        <div class="vbody">
+          <div class="dash" style="grid-template-columns:1.3fr 1fr;padding:0">
+            <div class="col">
+              <div class="card">
+                <div class="card-h"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8M3 12h6M3 7h10M3 17h7"/></svg><span class="lbl">Open</span></div>
+                <div class="task"><div class="check"></div><div class="tx">Confirm 12:30a bus call with driver<div class="meta"><span class="who">You · TM</span><span class="due">Due 5:00p</span></div></div></div>
+                <div class="task"><div class="check"></div><div class="tx">Send updated stage plot to venue<div class="meta"><span class="who">Jess L. · LD</span><span class="due">Due 4:00p</span></div></div></div>
+                <div class="task"><div class="check"></div><div class="tx">Restock crew catering &amp; waters<div class="meta"><span class="who">Rick V. · PM</span><span class="due">Due 2:00p</span></div></div></div>
+                <div class="task"><div class="check"></div><div class="tx">Promoter settlement after set<div class="meta"><span class="who">Casey L.</span><span>Tonight</span></div></div></div>
+                <div class="task"><div class="check"></div><div class="tx">Collect day-off rooming list<div class="meta"><span class="who">Dana C.</span><span>Tomorrow</span></div></div></div>
+              </div>
+              <div class="card">
+                <div class="card-h"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span class="lbl">Done today</span></div>
+                <div class="task done"><div class="check"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></div><div class="tx">Send day sheet to all crew<div class="meta"><span>Done 9:14a</span></div></div></div>
+                <div class="task done"><div class="check"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></div><div class="tx">Confirm guest list with box office<div class="meta"><span>Done 1:02p</span></div></div></div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <div class="card-h"><svg viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h8M3 6h.01M3 12h.01M3 18h.01"/></svg><span class="lbl">Notes</span></div>
+                <div class="note"><span class="pin">📌</span><span class="tx">Hard curfew 11:00p — venue cuts power, no encore buffer.</span></div>
+                <div class="note"><span class="pin">📌</span><span class="tx">Bus parking permit is with security at Gate C.</span></div>
+                <div class="note"><span class="pin">📌</span><span class="tx">Promoter rep prefers text over email for day-of.</span></div>
+                <div class="note"><span class="pin">📌</span><span class="tx">Merch split 80/20 — settle at load-out, not after set.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ ADVANCE ============ -->
+      <div id="view-advance" class="view">
+        <div class="pagehead">
+          <div class="venue"><h2>Advance</h2><p>Advancing status · next 3 shows</p></div>
+        </div>
+        <div class="vbody">
+          <div class="adv-grid">
+            <div class="card adv-card">
+              <div class="av-h"><div><div class="av-city">Atlanta, GA</div><div class="av-sub">Mon Jun 29 · Tabernacle · Casey Lin</div></div><div class="av-pct" style="color:var(--teal)">85%</div></div>
+              <div class="adv-item ok"><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Production advance</div>
+              <div class="adv-item ok"><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Hospitality &amp; catering</div>
+              <div class="adv-item ok"><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Parking &amp; bus access</div>
+              <div class="adv-item ok"><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Local crew confirmed</div>
+              <div class="adv-item"><span class="ck"></span>Immigration docs filed</div>
+              <div class="adv-prog"><i style="width:85%"></i></div>
+            </div>
+            <div class="card adv-card">
+              <div class="av-h"><div><div class="av-city">Charlotte, NC</div><div class="av-sub">Tue Jun 30 · Fillmore · J. Reyes</div></div><div class="av-pct" style="color:var(--amber)">55%</div></div>
+              <div class="adv-item ok"><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Production advance</div>
+              <div class="adv-item"><span class="ck"></span>Hospitality &amp; catering</div>
+              <div class="adv-item ok"><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Parking &amp; bus access</div>
+              <div class="adv-item"><span class="ck"></span>Local crew confirmed</div>
+              <div class="adv-item ok"><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Immigration docs filed</div>
+              <div class="adv-prog"><i style="width:55%"></i></div>
+            </div>
+            <div class="card adv-card">
+              <div class="av-h"><div><div class="av-city">Nashville, TN</div><div class="av-sub">Thu Jul 2 · Ryman · M. Boone</div></div><div class="av-pct" style="color:var(--coral)">20%</div></div>
+              <div class="adv-item ok"><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>Production advance</div>
+              <div class="adv-item"><span class="ck"></span>Hospitality &amp; catering</div>
+              <div class="adv-item"><span class="ck"></span>Parking &amp; bus access</div>
+              <div class="adv-item"><span class="ck"></span>Local crew confirmed</div>
+              <div class="adv-item"><span class="ck"></span>Immigration docs filed</div>
+              <div class="adv-prog"><i style="width:20%"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ GUEST LIST ============ -->
+      <div id="view-guestlist" class="view">
+        <div class="pagehead">
+          <div class="venue"><h2>Guest List</h2><p>Tonight · House of Blues Anaheim</p></div>
+          <div class="date"><button class="addbtn"><span>+</span> Add guest</button></div>
+        </div>
+        <div class="vbody">
+          <div class="statgrid">
+            <div class="stat-card"><div class="n">42<span style="font-size:14px;color:var(--faint)"> / 60</span></div><div class="l">Spots used</div></div>
+            <div class="stat-card"><div class="n teal">18</div><div class="l">Remaining</div></div>
+            <div class="stat-card"><div class="n amber">6</div><div class="l">Pending</div></div>
+            <div class="stat-card"><div class="n">8</div><div class="l">Lists</div></div>
+          </div>
+          <div class="card tablecard"><div class="tscroll"><table class="dtable">
+            <thead><tr><th>Name</th><th>Guests</th><th>List</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="tcell">Alex Morgan</td><td class="tnum">+1</td><td>Label</td><td><span class="pill green"><span class="dot"></span>Confirmed</span></td></tr>
+              <tr><td class="tcell">Jordan Reese</td><td class="tnum">+2</td><td>Promoter</td><td><span class="pill green"><span class="dot"></span>Confirmed</span></td></tr>
+              <tr><td class="tcell">Sam Patel</td><td class="tnum">+0</td><td>Crew</td><td><span class="pill green"><span class="dot"></span>Confirmed</span></td></tr>
+              <tr><td class="tcell">Riley Chen</td><td class="tnum">+1</td><td>Artist</td><td><span class="pill amber"><span class="dot"></span>Pending</span></td></tr>
+              <tr><td class="tcell">Taylor Brooks</td><td class="tnum">+3</td><td>VIP</td><td><span class="pill green"><span class="dot"></span>Confirmed</span></td></tr>
+              <tr><td class="tcell">Morgan Diaz</td><td class="tnum">+1</td><td>Press</td><td><span class="pill amber"><span class="dot"></span>Pending</span></td></tr>
+              <tr><td class="tcell">Casey Lin</td><td class="tnum">+2</td><td>Promoter</td><td><span class="pill green"><span class="dot"></span>Confirmed</span></td></tr>
+              <tr><td class="tcell">Jamie Wells</td><td class="tnum">+0</td><td>Crew</td><td><span class="pill green"><span class="dot"></span>Confirmed</span></td></tr>
+            </tbody>
+          </table></div></div>
+        </div>
+      </div>
+
+      <!-- ============ SET LIST ============ -->
+      <div id="view-setlist" class="view">
+        <div class="pagehead">
+          <div class="venue"><h2>Set List</h2><p>Headline set · ~1h 35m · 14 songs</p></div>
+          <div class="date"><button class="addbtn"><span>+</span> Add song</button></div>
+        </div>
+        <div class="vbody">
+          <div class="card">
+            <div class="card-h"><svg viewBox="0 0 24 24"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="19" cy="16" r="3"/></svg><span class="lbl">Main set</span></div>
+            <div class="song"><span class="sn">1</span><span class="st">Open Road</span><span class="sd">4:10</span></div>
+            <div class="song"><span class="sn">2</span><span class="st">Neon Tide <small>extended intro</small></span><span class="sd">3:48</span></div>
+            <div class="song"><span class="sn">3</span><span class="st">Hollow Hours</span><span class="sd">5:02</span></div>
+            <div class="song"><span class="sn">4</span><span class="st">Citylights</span><span class="sd">3:30</span></div>
+            <div class="song"><span class="sn">5</span><span class="st">Paper Crowns</span><span class="sd">4:20</span></div>
+            <div class="song"><span class="sn">6</span><span class="st">Ghost Radio</span><span class="sd">3:55</span></div>
+            <div class="song"><span class="sn">7</span><span class="st">Slow Burn <small>guitar solo</small></span><span class="sd">6:10</span></div>
+            <div class="song"><span class="sn">8</span><span class="st">Wildfire</span><span class="sd">4:05</span></div>
+            <div class="song"><span class="sn">9</span><span class="st">The Long Way</span><span class="sd">4:48</span></div>
+            <div class="song"><span class="sn">10</span><span class="st">Backseat Stars</span><span class="sd">3:40</span></div>
+            <div class="song"><span class="sn">11</span><span class="st">Heavy Weather</span><span class="sd">5:15</span></div>
+            <div class="song"><span class="sn">12</span><span class="st">Midnight Tide <small>acoustic</small></span><span class="sd">4:30</span></div>
+            <div class="set-divider">Encore</div>
+            <div class="song"><span class="sn">13</span><span class="st">Run With Me</span><span class="sd">4:12</span></div>
+            <div class="song"><span class="sn">14</span><span class="st">Corvette Summer <small>full-band outro</small></span><span class="sd">6:40</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ ACCOUNTING ============ -->
+      <div id="view-accounting" class="view">
+        <div class="pagehead">
+          <div class="venue"><h2>Accounting</h2><p>Tour P&amp;L · Corvette Summer</p></div>
+          <div class="date"><button class="addbtn"><span>+</span> Add entry</button></div>
+        </div>
+        <div class="vbody">
+          <div class="statgrid">
+            <div class="stat-card"><div class="n">$899k</div><div class="l">Gross to date</div></div>
+            <div class="stat-card"><div class="n coral">$223.5k</div><div class="l">Show costs</div></div>
+            <div class="stat-card"><div class="n teal">$675.4k</div><div class="l">Net to date</div></div>
+            <div class="stat-card"><div class="n amber">2</div><div class="l">Unsettled</div></div>
+          </div>
+          <div class="card tablecard"><div class="tscroll"><table class="dtable">
+            <thead><tr><th>Show</th><th>Gross</th><th>Costs</th><th>Net</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="tcell">Miami</td><td class="tnum">$186,500</td><td class="tnum">$44,200</td><td class="tnum">$142,300</td><td><span class="pill green"><span class="dot"></span>Settled</span></td></tr>
+              <tr><td class="tcell">Jacksonville</td><td class="tnum">$214,800</td><td class="tnum">$52,100</td><td class="tnum">$162,700</td><td><span class="pill green"><span class="dot"></span>Settled</span></td></tr>
+              <tr><td class="tcell">Atlanta</td><td class="tnum">$192,300</td><td class="tnum">$46,800</td><td class="tnum">$145,500</td><td><span class="pill green"><span class="dot"></span>Settled</span></td></tr>
+              <tr><td class="tcell">Charlotte</td><td class="tnum">$128,400</td><td class="tnum">$38,900</td><td class="tnum">$89,500</td><td><span class="pill amber"><span class="dot"></span>Pending</span></td></tr>
+              <tr><td class="tcell">Nashville</td><td class="tnum">$176,900</td><td class="tnum">$41,500</td><td class="tnum">$135,400</td><td><span class="pill amber"><span class="dot"></span>Pending</span></td></tr>
+            </tbody>
+          </table></div>
+          <div class="note-link">Reconciles with <b>Tour Budget</b> on the dashboard.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ ATTACHMENTS ============ -->
+      <div id="view-attachments" class="view">
+        <div class="pagehead">
+          <div class="venue"><h2>Attachments</h2><p>24 files · Corvette Summer</p></div>
+          <div class="date"><button class="addbtn"><span>+</span> Upload</button></div>
+        </div>
+        <div class="vbody">
+          <div class="statgrid">
+            <div class="stat-card"><div class="n">24</div><div class="l">Files</div></div>
+            <div class="stat-card"><div class="n">3</div><div class="l">Contracts</div></div>
+            <div class="stat-card"><div class="n">8</div><div class="l">Tech riders</div></div>
+            <div class="stat-card"><div class="n coral">Today</div><div class="l">Last update</div></div>
+          </div>
+          <div class="card">
+            <div class="card-h"><svg viewBox="0 0 24 24"><path d="M21 12.5l-8.5 8.5a5 5 0 01-7-7l9-9a3.5 3.5 0 015 5l-9 9a2 2 0 01-3-3l8-8"/></svg><span class="lbl">Recent files</span></div>
+            <div class="file"><div class="fic pdf">PDF</div><div><div class="fname">Performance Agreement — Atlanta.pdf</div><div class="fsub">Contract · uploaded by Casey Lin</div></div><div class="fmeta">1.2 MB<br>Jun 22</div></div>
+            <div class="file"><div class="fic pdf">PDF</div><div><div class="fname">Tech Rider v4.pdf</div><div class="fsub">Rider · uploaded by Rick V.</div></div><div class="fmeta">880 KB<br>Jun 20</div></div>
+            <div class="file"><div class="fic img">PNG</div><div><div class="fname">Stage Plot — HOB Anaheim.png</div><div class="fsub">Stage plot · uploaded by Jess L.</div></div><div class="fmeta">2.1 MB<br>Jun 24</div></div>
+            <div class="file"><div class="fic doc">DOC</div><div><div class="fname">Input List.docx</div><div class="fsub">Audio · uploaded by Sam O.</div></div><div class="fmeta">64 KB<br>Jun 19</div></div>
+            <div class="file"><div class="fic pdf">PDF</div><div><div class="fname">Immigration — P-1 Visas.pdf</div><div class="fsub">Legal · uploaded by Dana C.</div></div><div class="fmeta">3.4 MB<br>Jun 10</div></div>
+            <div class="file"><div class="fic xls">XLS</div><div><div class="fname">Rooming List.xlsx</div><div class="fsub">Hotels · uploaded by Dana C.</div></div><div class="fmeta">48 KB<br>Jun 23</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- add crew modal -->
+      <div class="modal-bg" id="modalBg">
+        <div class="modal">
+          <div class="modal-h">Add crew member</div>
+          <label class="fld"><span>Name</span><input type="text" id="mName" placeholder="e.g. Alex Rivera"></label>
+          <label class="fld"><span>Role</span>
+            <select id="mRole">
+              <option>Sound Engineer</option>
+              <option>Catering</option>
+              <option>Photography</option>
+              <option>Lighting Designer</option>
+              <option>Backline Tech</option>
+              <option>Stage Manager</option>
+              <option>Production Manager</option>
+            </select>
+          </label>
+          <label class="fld"><span>Region</span><input type="text" id="mRegion" placeholder="e.g. Los Angeles, CA"></label>
+          <div class="modal-actions">
+            <button class="btn-ghost" id="cancelAdd">Cancel</button>
+            <button class="btn-coral" id="confirmAdd">Add to tour</button>
+          </div>
+        </div>
+      </div>
+
+      <footer class="appfoot">
+        <span class="seg">Made with <span class="heart">♥</span> by Menos Labs</span>
+        <span class="seg">menoslabs.com</span>
+        <span class="seg wx">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F4B43C" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"/></svg>
+          <b>74°</b> Clear · Anaheim, CA
+          <span class="alert">⚠ Wind 18mph at Sat festival date</span>
+        </span>
+      </footer>
+    </div><!-- /main -->
+  </div><!-- /app -->
+
+  <!-- ============ MENOS LABS CONTACT ============ -->
+  <section class="ml-contact">
+    <div class="ml-eyebrow">Let's Build Something</div>
+    <h2 class="ml-h2">Start a <em>conversation.</em></h2>
+    <div class="ml-contact-grid">
+      <div>
+        <p class="ml-desc">Whether you're ready to deploy AI, navigate a transformation, scale a start-up, or sharpen your brand — we should talk.</p>
+        <div class="ml-links">
+          <a href="https://menoslabs.com" target="_blank" rel="noopener" class="ml-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+            menoslabs.com
+          </a>
+          <a href="https://linkedin.com/company/menos-labs" target="_blank" rel="noopener" class="ml-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            linkedin.com/company/menos-labs
+          </a>
+        </div>
+      </div>
+      <form class="ml-form" onsubmit="handleSubmit(event)">
+        <input class="form-input" type="text" placeholder="Your name" required>
+        <input class="form-input" type="email" placeholder="Your email" required>
+        <input class="form-input" type="text" placeholder="Company / project type">
+        <textarea class="form-input" placeholder="Tell us what you're working on or trying to solve..."></textarea>
+        <button type="submit" class="form-submit">Send Message <span>→</span></button>
+        <div id="form-success" class="ml-success">Message sent — we'll be in touch shortly.</div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="ml-footer">
+    <a href="https://menoslabs.com" target="_blank" rel="noopener" class="ml-foot-logo">Menos<span>Labs</span></a>
+    <div class="ml-foot-copy">© 2026 · Chicago, IL · Ethical AI Consulting</div>
+    <a href="https://linkedin.com/company/menos-labs" target="_blank" rel="noopener" class="ml-foot-li" aria-label="LinkedIn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+  </footer>
+
+<script>
+  const t = document.getElementById('toggle');
+  t.addEventListener('click', () => {
+    const on = document.body.classList.toggle('why');
+    t.setAttribute('aria-pressed', on);
+    t.childNodes[t.childNodes.length-1].textContent = on ? ' Hide design rationale' : ' Show design rationale';
+  });
+
+  // tasks toggle
+  document.querySelectorAll('.task .check').forEach(c => {
+    c.addEventListener('click', () => c.closest('.task').classList.toggle('done'));
+  });
+
+  // crew chat send (demo)
+  const stream = document.getElementById('stream');
+  const input = document.getElementById('chatInput');
+  const btn = document.getElementById('sendBtn');
+  function send(){
+    const v = input.value.trim();
+    if(!v) return;
+    const m = document.createElement('div');
+    m.className = 'msg me';
+    const time = new Date().toLocaleTimeString([], {hour:'numeric', minute:'2-digit'}).replace(' ','').toLowerCase();
+    m.innerHTML = '<div class="av">DC</div><div class="bub"><div class="nm">You <span class="role">TM</span><span class="time">'+time+'</span></div><div class="tx"></div></div>';
+    m.querySelector('.tx').textContent = v;
+    stream.appendChild(m);
+    input.value = '';
+    stream.scrollTop = stream.scrollHeight;
+  }
+  btn.addEventListener('click', send);
+  input.addEventListener('keydown', e => { if(e.key === 'Enter') send(); });
+
+  /* ===== view switching ===== */
+  const navItems = document.querySelectorAll('.nav-item');
+  navItems.forEach(n => {
+    n.addEventListener('click', () => {
+      const v = n.getAttribute('data-view');
+      if(!v) return;
+      const target = document.getElementById('view-' + v);
+      if(!target) return;
+      navItems.forEach(x => x.classList.remove('active'));
+      n.classList.add('active');
+      document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+      target.classList.add('active');
+      const main = document.querySelector('.main');
+      if(main) main.scrollTop = 0;
+    });
+  });
+
+  /* ===== crew network data ===== */
+  const crew = [
+    {n:'Alex Rivera', i:'AR', c:'#5b8def', role:'Sound Engineer', tag:'Sound Engineer', city:'Los Angeles, CA', region:'local', star:'4.9', yrs:14, tours:42, credit:'FOH · arena & amphitheatre circuit', mutual:3},
+    {n:'Dom Carter', i:'DC', c:'#6a72ff', role:'Monitor Engineer', tag:'Sound Engineer', city:'Nashville, TN', region:'national', star:'4.8', yrs:11, tours:33, credit:'Monitors · country & rock tours', mutual:1},
+    {n:'Lena Hoffman', i:'LH', c:'#f4b43c', role:'Lighting Designer', tag:'Lighting', city:'Las Vegas, NV', region:'local', star:'5.0', yrs:16, tours:51, credit:'LD · festival main stages', mutual:2},
+    {n:'Priya Raman', i:'PR', c:'#3fc9a8', role:'Catering Lead', tag:'Catering', city:'San Diego, CA', region:'local', star:'4.9', yrs:9, tours:27, credit:'Crew catering · 200+ pax days', mutual:4},
+    {n:'Marcus Webb', i:'MW', c:'#e07a9a', role:'Catering / Hospitality', tag:'Catering', city:'Austin, TX', region:'national', star:'4.7', yrs:7, tours:19, credit:'Hospitality & green room', mutual:0},
+    {n:'Tasha Lin', i:'TL', c:'#3fc9a8', role:'Tour Photographer', tag:'Photography', city:'Los Angeles, CA', region:'local', star:'5.0', yrs:8, tours:24, credit:'Live & documentary photography', mutual:2},
+    {n:'Owen Pratt', i:'OP', c:'#5b8def', role:'Photo / Video', tag:'Photography', city:'Brooklyn, NY', region:'national', star:'4.8', yrs:10, tours:30, credit:'Tour content · photo + video', mutual:1},
+    {n:'Gabe Flores', i:'GF', c:'#a05ad0', role:'Backline Tech', tag:'Backline', city:'Phoenix, AZ', region:'local', star:'4.9', yrs:13, tours:38, credit:'Guitar & keys tech', mutual:2},
+    {n:'Sara Ono', i:'SO', c:'#6fcf7f', role:'Stage Manager', tag:'Stage', city:'Seattle, WA', region:'national', star:'4.9', yrs:15, tours:47, credit:'Stage mgmt · large-format', mutual:1},
+    {n:'Will Banks', i:'WB', c:'#f4b43c', role:'Systems Engineer', tag:'Sound Engineer', city:'Anaheim, CA', region:'local', star:'4.8', yrs:12, tours:35, credit:'PA systems & tuning', mutual:3},
+  ];
+
+  const grid = document.getElementById('crewGrid');
+  const rosterList = document.getElementById('rosterList');
+  const rosterCount = document.getElementById('rosterCount');
+  const added = new Set();
+  let curRole = 'all', curRegion = 'national';
+
+  const verifySVG = '<svg class="cc-verify" viewBox="0 0 24 24" fill="none" stroke="#3fc9a8" stroke-width="2.4"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>';
+
+  function renderGrid(){
+    const list = crew.filter(p =>
+      (curRole === 'all' || p.tag === curRole) &&
+      (curRegion === 'national' || p.region === 'local')
+    );
+    grid.innerHTML = list.map((p,idx) => {
+      const key = p.n;
+      const isAdded = added.has(key);
+      return `<div class="ccard">
+        <div class="cc-top">
+          <div class="cc-av" style="background:${p.c}">${p.i}</div>
+          <div><div class="cc-name">${p.n} ${verifySVG}</div><div class="cc-role">${p.role}</div></div>
+        </div>
+        <div class="cc-meta"><span class="loc">📍 ${p.city}${p.region==='local'?' · in-region':''}</span><div>${p.credit}</div></div>
+        <div class="cc-stats"><span class="cc-star">★ ${p.star}</span><span><b>${p.yrs}</b> yrs</span><span><b>${p.tours}</b> tours</span></div>
+        <div class="cc-mutual">🔗 <b>${p.mutual>0?p.mutual+' mutual crew':'New to your network'}</b></div>
+        <button class="cc-add ${isAdded?'added':''}" data-name="${p.n}" data-role="${p.role}" data-init="${p.i}" data-color="${p.c}">${isAdded?'✓ On this tour':'+ Add to tour'}</button>
+      </div>`;
+    }).join('');
+    grid.querySelectorAll('.cc-add').forEach(b => {
+      if(b.classList.contains('added')) return;
+      b.addEventListener('click', () => {
+        addToRoster(b.dataset.name, b.dataset.role, b.dataset.init, b.dataset.color);
+        b.classList.add('added'); b.textContent = '✓ On this tour';
+      });
+    });
+  }
+
+  function addToRoster(name, role, init, color){
+    added.add(name);
+    const el = document.createElement('div');
+    el.className = 'rmember';
+    el.innerHTML = `<div class="ravatar" style="background:${color||'#5b8def'}">${init||name.slice(0,2).toUpperCase()}</div>
+      <div class="rinfo"><div class="rn">${name}</div><div class="rr">${role}</div></div>
+      <span class="rtag new">Added</span>`;
+    rosterList.appendChild(el);
+    rosterCount.textContent = rosterList.children.length;
+  }
+
+  // role + region filters
+  document.querySelectorAll('.chipf').forEach(c => {
+    c.addEventListener('click', () => {
+      if(c.classList.contains('region')){
+        document.querySelectorAll('.chipf.region').forEach(x=>x.classList.remove('active'));
+        c.classList.add('active'); curRegion = c.dataset.region;
+      } else {
+        document.querySelectorAll('.chipf:not(.region)').forEach(x=>x.classList.remove('active'));
+        c.classList.add('active'); curRole = c.dataset.role;
+      }
+      renderGrid();
+    });
+  });
+
+  // crew tabs
+  document.querySelectorAll('.ctab').forEach(tb => {
+    tb.addEventListener('click', () => {
+      document.querySelectorAll('.ctab').forEach(x=>x.classList.remove('active'));
+      tb.classList.add('active');
+      document.querySelectorAll('.ctab-panel').forEach(p=>p.classList.remove('active'));
+      document.getElementById('tab-' + tb.dataset.tab).classList.add('active');
+    });
+  });
+
+  // add-crew modal
+  const modalBg = document.getElementById('modalBg');
+  document.getElementById('openAdd').addEventListener('click', ()=> modalBg.classList.add('open'));
+  document.getElementById('cancelAdd').addEventListener('click', ()=> modalBg.classList.remove('open'));
+  modalBg.addEventListener('click', e => { if(e.target===modalBg) modalBg.classList.remove('open'); });
+  document.getElementById('confirmAdd').addEventListener('click', ()=>{
+    const name = document.getElementById('mName').value.trim() || 'New Crew';
+    const role = document.getElementById('mRole').value;
+    addToRoster(name, role, name.slice(0,2).toUpperCase(), '#a05ad0');
+    document.getElementById('mName').value = '';
+    modalBg.classList.remove('open');
+    // jump to roster so the add is visible
+    document.querySelector('.ctab[data-tab="roster"]').click();
+  });
+
+  // day / night mode
+  const themeBtn = document.getElementById('themeBtn');
+  function toggleTheme(){
+    const day = document.body.classList.toggle('day');
+    themeBtn.title = day ? 'Switch to Night Mode' : 'Switch to Day Mode';
+  }
+  themeBtn.addEventListener('click', toggleTheme);
+  themeBtn.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggleTheme(); } });
+
+  // live venue local clock (Anaheim) — call times run on local time
+  const venueClock = document.getElementById('venueClock');
+  function tickClock(){
+    try{
+      venueClock.textContent = new Date().toLocaleTimeString('en-US', { timeZone:'America/Los_Angeles', hour:'numeric', minute:'2-digit' });
+    }catch(e){
+      venueClock.textContent = new Date().toLocaleTimeString('en-US', { hour:'numeric', minute:'2-digit' });
+    }
+  }
+  tickClock(); setInterval(tickClock, 15000);
+
+  // contact form -> Menos Labs worker (matches menoslabs.com behaviour)
+  async function handleSubmit(e){
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('.form-submit');
+    btn.innerHTML = 'Sending...';
+    btn.disabled = true;
+    const inputs = form.querySelectorAll('.form-input');
+    const [name, email, company, message] = [...inputs].map(i => i.value);
+    try{
+      await fetch('https://menoslabs-contact.thedobrien.workers.dev', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, company, message })
+      });
+    }catch(err){}
+    form.querySelectorAll('.form-input, .form-submit').forEach(el => el.style.display = 'none');
+    document.getElementById('form-success').style.display = 'block';
+  }
+
+  renderGrid();
+</script>
+</body>
+</html>
